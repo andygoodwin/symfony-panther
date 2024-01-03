@@ -1,6 +1,7 @@
 {
   "name": "symfony/panther",
   "type": "library",
+  "version": "2.1.2-dev",
   "description": "A browser testing and web scraping library for PHP and Symfony.",
   "keywords": ["scraping", "E2E", "testing", "webdriver", "selenium", "symfony"],
   "homepage": "https://dunglas.fr",
@@ -37,7 +38,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-main": "2.0.x-dev"
+      "dev-main": "2.1.x-dev"
     }
   },
   "config": {
