@@ -66,7 +66,9 @@ final class ChromeManager implements BrowserManagerInterface
                 $capabilities->setCapability(ChromeOptions::CAPABILITY, $chromeOptions);
             }
             $chromeOptions->addArguments($this->arguments);
-
+            $chromeOptions->addExtensions([
+                base_path() . '/chromeextensions/vis.crx'
+            ]);
             if (isset($_SERVER['PANTHER_CHROME_BINARY'])) {
                 $chromeOptions->setBinary($_SERVER['PANTHER_CHROME_BINARY']);
             }
@@ -99,6 +101,7 @@ final class ChromeManager implements BrowserManagerInterface
         // Enable the headless mode unless PANTHER_NO_HEADLESS is defined
         if (!($_SERVER['PANTHER_NO_HEADLESS'] ?? false)) {
             $args[] = '--headless';
+            $args[] = '--user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"';
             $args[] = '--window-size=1200,1100';
             $args[] = '--disable-gpu';
         }
